@@ -1,0 +1,2 @@
+$page = getRequestedPage();
+   showResponsePage($page);
