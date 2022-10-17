@@ -7,6 +7,23 @@
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+
+<?php
+// initate the variables
+   $name = $email = ... = $message = '';
+   $nameErr = $emailErr = ... = $messageErr = '';
+   $valid = false;
+
+
+   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // validate the 'POST' data
+
+      // ....   
+
+      $valid = ...
+   }
+  ?>
+
     <div>
         <h1>CONTACT</h1>
     </div>
@@ -17,30 +34,27 @@
   <a href="http://localhost/educom-webshop-basis-1/index.php?page=contact" class="active">Contact</a>
 </div>
 <p>
-<form method=”GET” action=”https://api.dev-master.ninja/html/form”>
-            
-    <select name=”YouLikeHtml”>
-        <label for="fname">Voornaam:</label><br><br>
-                       <option disabled selected>-- aanhef -- </option>
-                       <option value=”Y”>Dhr.</option>
-                       <option value=”N”>Mvr.</option>
-                       <input type="text" id="fname" name="fname"><br><br>
-                       <label for="fname">E-mail:</label><br><br>
-                       <input type="text" id="email" name="email"><br><br>
-                       <label for="fname">Telefoonnummer:</label><br><br>
-                       <input type="text" id="phone" name="phone"><br>
-                       <p>Communicatievoorkeur:</p>
-                       <input type="radio" id="html" name="fav_com" value="email">
-                       <label for="email">E-mail</label><br><br>
-                       <input type="radio" id="css" name="fav_com" value="phone">
-                       <label for="phone">Telefoon</label><br><br> 
-                        <label for="subject">Onderwerp:</label><br><br>-/*9
-                             name=”age”
-                             min=”1” max=”50”><br><br> 
-                        <input type="submit" value="Verstuur">
-                      </form>
-                    </select>
-                </form></p>
+                <section>;
+
+<?php if (!$valid) { /* Show the next part only when $valid is false */ ?>
+
+  <form method="POST" action="contact.php">;
+    ...
+    <input name="email" value="<?php echo $email; ?>" id="email">
+    <span class="error">* <?php echo $emailErr; ?></span>
+    ...
+  </form>;
+
+<?php } else { /* Show the next part only when $valid is true */ ?>
+
+ <p>Bedankt voor uw reactie:</p>
+ ...
+ <div>Email: <?php echo $email; ?></div>
+ ...     
+
+<?php } /* End of conditional showing */ ?>
+
+</section>
 
 <div class="footer">
     <footer>
